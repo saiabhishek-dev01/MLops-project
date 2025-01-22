@@ -6,7 +6,7 @@ from mlOPS.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from mlOPS.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 from mlOPS.pipeline.stage_03_data_tranformation import DataTransformationTrainingPipeline 
 from mlOPS.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
-
+from mlOPS.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 try:
@@ -43,6 +43,16 @@ STAGE_NAME = "Model Trainer stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
    data_ingestion = ModelTrainerTrainingPipeline()
+   data_ingestion.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e
+
+STAGE_NAME = "Model evaluation stage"
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+   data_ingestion = ModelEvaluationTrainingPipeline()
    data_ingestion.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:

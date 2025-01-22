@@ -13,13 +13,64 @@
 8. Update the main.py
 9. Update the app.py
 
+### STEP 01- Create a conda environment after opening the repository
 
-import dagshub
-dagshub.init(repo_owner='saiabhishek-dev01', repo_name='MLops-project', mlflow=True)
+```bash
+conda create -n mlops python=3.8 -y
+```
 
-import mlflow
-with mlflow.start_run():
-  mlflow.log_param('parameter name', 'value')
-  mlflow.log_metric('metric name', 1)
+```bash
+conda activate mlops
+```
+
+
+### STEP 02- install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+
+```bash
+# Finally run the following command
+python app.py
+```
+
+Now,
+```bash
+open up you local host and port
+```
+
+
+
+## MLflow
+
+[Documentation](https://mlflow.org/docs/latest/index.html)
+
+
+##### cmd
+- mlflow ui
+
+
+
+### dagshub
+[dagshub](https://dagshub.com/)
+
+MLFLOW_TRACKING_URI=https://dagshub.com/saiabhishek-dev01/MLops-project.mlflow \
+MLFLOW_TRACKING_USERNAME=saiabhishek-dev01 \
+MLFLOW_TRACKING_PASSWORD=d0a83102f0e97fd3bb51aa187754dc40e1467e9b \
+
+python script.py
+
+Run this to export as env variables:
+
+```bash
+
+export MLFLOW_TRACKING_URI=https://dagshub.com/saiabhishek-dev01/MLops-project.mlflow
+export MLFLOW_TRACKING_USERNAME=saiabhishek-dev01
+export MLFLOW_TRACKING_PASSWORD=d0a83102f0e97fd3bb51aa187754dc40e1467e9b
+
+```
+
+
 
 
